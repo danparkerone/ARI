@@ -1,0 +1,71 @@
+AT Modalità di comando
+http://www.martyncurrey.com/arduino-with-hc-05-bluetooth-module-at-mode/
+
+La maggior parte dei comandi funziona in qualsiasi modalità di comando AT, ma ci sono alcuni comandi
+che funzionano solo quando pin34 è ALTO.
+consiglio solo di utilizzare la modalità di comando AT completa di 38400 baud rate.
+Per attivare la modalità AT sui moduli HC-05 zs-040, il pin 34 deve essere ALTO all'accensione.
+
+Tieni presente che per la modalità di comando AT completa,
+il pin 34 deve essere sempre ALTO e non possiamo farlo solo con l'interruttore del pulsante.
+Quando si è in modalità di comando AT con il pin 34 non ALTO (BASSO o flottante)
+alcuni comandi non funzioneranno e quindi, quando si utilizza l'interruttore a pulsante,
+è necessario tenerlo premuto quando si inviano alcuni comandi.
+
+Utilizzo dell'interruttore a pulsante per accedere alla modalità di comando AT utilizzando una velocità di trasmissione di 38400 baud:
+– 1. scollegare l'alimentazione dal modulo
+– 2. Tenere chiuso l'interruttore a pulsante piccolo durante l'accensione del modulo.
+– 3. Tenere premuto l'interruttore a pulsante.
+– 4. Tenendo ancora chiuso l'interruttore a pulsante, applicare l'alimentazione.
+– 5. Quando vedete il LED accendersi potete rilasciare l'interruttore del pulsante.
+
+Entra in modalità AT con la velocità di trasmissione della modalità AT incorporata di 38400.
+La velocità di trasmissione non può essere modificata dall'utente.
+Questo metodo consente al modulo di entrare in modalità AT all'avvio ma non mantiene
+il pin 34 ALTO e alcuni comandi non funzioneranno.
+
+In alternativa, se si utilizza la modalità di comando AT per un certo periodo di tempo,
+effettuare una connessione diretta tra il pin 34 e +3.3v. Salda un filo al pin o usa una clip.
+
+Utilizzando il pin 34 per accedere alla modalità di comando AT completa utilizzando 38400 baud rate.
+– 1. Rimuovere l'alimentazione dal modulo
+– 2. Effettuare una connessione tra il pin 34 e +3,3 v
+– 3. Ricollegare l'alimentazione.
+
+Entra in modalità AT con la velocità di trasmissione della modalità AT incorporata di 38400.
+La velocità di trasmissione non può essere modificata dall'utente.
+Se mantieni il pin 34 ALTO abiliterai la modalità AT "completa" che consente di utilizzare tutti i comandi AT.
+Se si lascia che il pin 34 torni BASSO dopo l'accensione, la modalità AT "mini" sarà abilitata.
+
+Comandi AT
+L'HC-05 prevede che i comandi includano un ritorno a capo e caratteri di nuova riga (\r\n).
+Puoi aggiungerli automaticamente nel monitor seriale selezionando "Both NL & CR" nella parte
+inferiore della finestra. Puoi anche inserirli manualmente nel modulo AT\r\n.
+Se si dimentica di aggiungere caratteri di ritorno a capo e di nuova riga, l'HC-05 non risponderà.
+
+AT – semplice richiesta di feedback. Tornerà "OK"
+AT+VERSION – restituisce la versione del firmware.
+AT+STATE – restituisce lo stato corrente del modulo
+AT+RUOLO – i possibili valori sono ; 0 – Slave, 1 – Master, 2 – Slave-Loop
+
+Per passare alla modalità Master, immettere AT+ROLE=1, restituisce "OK"
+AT+UART – restituisce il baud rate utilizzato dall'HC-05 in modalità di comunicazione.
+Il valore predefinito per i moduli che ho è 9600.
+
+Per modificare il baud rate a 38400 – AT+UART=38400,0,0
+
+AT+NAME
+Interrogazione del nome dei moduli con AT+NAME? funziona solo in modalità At "pieno". Se non riesci a ottenere AT+NAME? per funzionare devi portare il pin34 ALTO.
+La modifica del nome dei moduli con AT+NAME=newname funziona in modalità AT “completa” e modalità AT “mini”.
+
+Quello che dovresti ottenere è:
+AT+NAME?, restituisce
++NAME:HC-05
+OK
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+Modulo Bluetooth HC-05 ZS-040
+vedi video 69 - 159 - 242 - 243 - 384:391
+
+Per la configurazione AT tramite ARDUINO:
+- impostare icollegamenti TX e RX dritti.
+- togliere alimentazione
+- rialimentare tenendo premuto il pulsantino fino a che il led sulla scheda lampeggerà lentamente
+- caricare lo sketch ConfigurazioneAT
+- impostare il terminale a 38400
+- eseguire i comendi AT
+- rialimentare
+
+Questo modulo è basato sul chip CSR Bluecore 04 External con tecnologia CMOS e AFH
+protocollo Bluetooth V2.0 3Mbps + EDR (Enhanced Data Rate).
+
+Per impostare il modulo HC-05 come dispositivo Master o Slave e per effettuare
+altre operazioni come variare il nome o il baud rate, è necessario attivare la modalità AT,
+in fase di accensione operando sul piccolo pulsante presente sul modulo e sul pin EN (vedi AT.txt).
+
+
+
+
