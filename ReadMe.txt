@@ -19,9 +19,6 @@ da Tx di ARDUINO a Rx del modulo BT. Viceversa non serve, in quanto l'uscita da 
 quindi accettata da ARDUINO
 Emettitore ad infrarossi LED IR5308C
 
-Per IR utilizzare la libreria IRremote.h ver.2.1.0
-nel file IRremoteInt.h alla riga 124 modificare _GAP a 50 (5000 di default)
-
-----------------------------------------------------------------------------------------
-
+Per IR, utilizzare la libreria IRremote.h ver.2.1.0.
+Nel file IRremoteInt.h alla riga 124 modificare _GAP a 50 (5000 di default).
 
