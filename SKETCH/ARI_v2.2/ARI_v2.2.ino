@@ -50,7 +50,9 @@ void  loop () {
     case 49: Serial.println(F("BD_PRIMARE_TASTO_BLU"));
       for (int i = 0; i < 19; i++) data19[i] = pgm_read_word_near(dataRow49 + i); txIr(1, 19); waitTx(); break;  
     case 925: Serial.println(F("BD_PRIMARE_BACK")); // Tasto Left mantenuto per circa 2 sec
-      for (int i = 0; i < 21; i++) data21[i] = pgm_read_word_near(dataRow25 + i); txIr(10, 21); waitTx(); break;              
+      for (int i = 0; i < 21; i++) data21[i] = pgm_read_word_near(dataRow25 + i); txIr(10, 21); waitTx(); break;
+    case 929: Serial.println(F("BD_PRIMARE_EJECT")); // Tasto STOP mantenuto per circa 2 sec
+      for (int i = 0; i < 21; i++) data21[i] = pgm_read_word_near(dataRow29 + i); txIr(10, 21); waitTx(); break;          
       
     /* TV -- PANASONIC ------------------------------------------------------------------------------------------ */  
     case 121: Serial.println(F("TV_PANASONIC_ON-OFF"));
@@ -92,9 +94,41 @@ void  loop () {
     case 74: Serial.println(F("AV_ROTEL_VOL-"));
       for (int i = 0; i < 87; i++) data87[i] = pgm_read_word_near(dataRow74 + i); txIr(1, 87); break;
        
-    /* DEFAULT ---------------------------------------------------------------------------------------------- */ 
+    /* DECODER TV XORO -------------------------------------------------------------------------------------- */
+    case 76: Serial.println(F("DECODER_XORO_ON-OFF"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow76 + i); txIr(1, 67); waitTx(); break;
+    case 95: Serial.println(F("DECODER_XORO_EXIT"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow95 + i); txIr(1, 67); waitTx(); break;
+    case 96: Serial.println(F("DECODER_XORO_UP"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow96 + i); txIr(1, 67); waitTx(); break;
+    case 97: Serial.println(F("DECODER_XORO_LEFT"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow97 + i); txIr(1, 67); waitTx(); break;
+    case 98: Serial.println(F("DECODER_XORO_RIGTH"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow98 + i); txIr(1, 67); waitTx(); break;
+    case 99: Serial.println(F("DECODER_XORO_DOWN"));  
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow99 + i); txIr(1, 67); waitTx(); break;
+    case 100: Serial.println(F("DECODER_XORO_OK"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow100 + i); txIr(1, 67); waitTx(); break;
+    case 101: Serial.println(F("DECODER_XORO_i"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow101 + i); txIr(1, 67); waitTx(); break;
+    case 102: Serial.println(F("DECODER_XORO_INDIETRO"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow102 + i); txIr(1, 67); waitTx(); break;
+    case 103: Serial.println(F("DECODER_XORO_EPG"));  
+    for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow103 + i); txIr(1, 67); waitTx(); break;
+    case 104: Serial.println(F("DECODER_XORO_TXT"));  
+    for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow104 + i); txIr(1, 67); waitTx(); break;
+    case 105: Serial.println(F("DECODER_XORO_VOL+")); 
+    for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow105 + i); txIr(1, 67); waitTx(); break;
+    case 106: Serial.println(F("DECODER_XORO_VOL-"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow106 + i); txIr(1, 67); waitTx(); break;
+    case 107: Serial.println(F("DECODER_XORO_PAGE+"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow107 + i); txIr(1, 67); waitTx(); break;
+    case 108: Serial.println(F("DECODER_XORO_PAGE-"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow108 + i); txIr(1, 67); waitTx(); break;
+
+    /* DEFAULT ---------------------------------------------------------------------------------------------- */
     default: 
-      if (cmd != 0) {Serial.print("Comando: <");Serial.print(cmd);Serial.println("> non trovato!");} break;                          
+      if (cmd != 0) {Serial.print("Comando: <");Serial.print(cmd);Serial.println("> non trovato!");} break;
   }
   delay(50);
 }
