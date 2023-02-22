@@ -48,7 +48,10 @@ void  loop () {
     case 32: Serial.println(F("BD_PRIMARE_FB"));
       for (int i = 0; i < 21; i++) data21[i] = pgm_read_word_near(dataRow32 + i); txIr(1, 21); waitTx(); break;       
     case 49: Serial.println(F("BD_PRIMARE_TASTO_BLU"));
-      for (int i = 0; i < 19; i++) data19[i] = pgm_read_word_near(dataRow49 + i); txIr(1, 19); waitTx(); break;  
+      for (int i = 0; i < 19; i++) data19[i] = pgm_read_word_near(dataRow49 + i); txIr(1, 19); waitTx(); break; 
+    case 36: Serial.println(F("BD_PRIMARE_DISP"));
+      for (int i = 0; i < 23; i++) data23[i] = pgm_read_word_near(dataRow36 + i); txIr(1, 23); waitTx(); break;
+      
     case 925: Serial.println(F("BD_PRIMARE_BACK")); // Tasto Left mantenuto per circa 2 sec
       for (int i = 0; i < 21; i++) data21[i] = pgm_read_word_near(dataRow25 + i); txIr(10, 21); waitTx(); break;
       
