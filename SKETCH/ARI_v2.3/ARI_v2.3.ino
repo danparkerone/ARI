@@ -110,6 +110,8 @@ void  loop () {
     /* DECODER TV XORO -------------------------------------------------------------------------------------- */
     case 76: Serial.println(F("DECODER_XORO_ON-OFF"));
       for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow76 + i); txIr(1, 67); break;
+    case 94: Serial.println(F("DECODER_XORO_MENU"));
+      for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow94 + i); txIr(1, 67); break;
     case 95: Serial.println(F("DECODER_XORO_EXIT"));
       for (int i = 0; i < 67; i++) data67[i] = pgm_read_word_near(dataRow95 + i); txIr(1, 67); break;
     case 96: Serial.println(F("DECODER_XORO_UP"));
